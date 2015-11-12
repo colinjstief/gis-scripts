@@ -1,6 +1,7 @@
 ## gps tracks
 ## colin stief
 ## december 17, 2014
+## edited on november 12, 2015
 
 import arcpy, csv, os
 
