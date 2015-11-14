@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../chesapeake-conservancy/.idea/chesapeake-conservancy.iml" filepath="$PROJECT_DIR$/../chesapeake-conservancy/.idea/chesapeake-conservancy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/gis-scripts.iml" filepath="$PROJECT_DIR$/.idea/gis-scripts.iml" />
     </modules>
   </component>
