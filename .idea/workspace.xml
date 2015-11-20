@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bc6a0c98-421b-454a-9275-7e670df3d017" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grab-attributes-from-polygon-vector.py" afterPath="$PROJECT_DIR$/grab-attributes-from-polygon-vector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chesapeake-conservancy/conservation-toolbox/site-files/robert-e-lee/index.html" afterPath="$PROJECT_DIR$/../chesapeake-conservancy/conservation-toolbox/site-files/robert-e-lee/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chesapeake-conservancy/conservation-toolbox/site-files/robert-e-lee/js/main.js" afterPath="$PROJECT_DIR$/../chesapeake-conservancy/conservation-toolbox/site-files/robert-e-lee/js/main.js" />
     </list>
     <ignored path="gis-scripts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="grab-attributes-from-polygon-vector.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grab-attributes-from-polygon-vector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5222405">
-              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.71004945">
+              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -555,8 +553,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grab-attributes-from-polygon-vector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5222405">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.71004945">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
           <folding />
         </state>
       </provider>
