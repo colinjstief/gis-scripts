@@ -28,6 +28,9 @@ for row in rows:
     arcpy.SelectLayerByLocation_management(parcel_layer, "INTERSECT", current_chop_layer)
 
     codeblock = """def grabValue(existingValue):
+
+        arcpy.AddMessage(existingValue)
+
         if existingValue != "":
             newValue = existingValue + ", " + %s
             return newValue
