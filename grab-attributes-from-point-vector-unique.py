@@ -8,7 +8,7 @@ parcel_file = "\\\\Ccsvr01\\d\\GIS\\PG_County\\Fields.gdb\\Parcels_Gaps"
 parcel_layer = arcpy.MakeFeatureLayer_management(parcel_file, "parcel_layer")
 
 # EDIT 1
-chop_file = "\\\\Ccsvr01\\d\\GIS\\PG_County\\CleanDatasets\\storm_drain_inventory\\Pipes_Dissolve_SD_Size_Type_MP.shp"
+chop_file = "\\\\Ccsvr01\\d\\GIS\\PG_County\\CleanDatasets\\storm_drain_inventory\\Pipes_Dissolve_SD_Size_Type.shp"
 chop_layer = arcpy.MakeFeatureLayer_management(chop_file, "chop_layer")
 
 # EDIT 2
@@ -17,19 +17,12 @@ field = "SD_T_S1_S2"
 # EDIT 3
 fields = ["SD_T_S1_S2"]
 
-rows = arcpy.da.SearchCursor(chop_file, fields)
-for row in rows:
-#codes = ['01','02','03','04','05','06','07','08','09','10','11','13','14']
+uniquePipes = set([row.getValue(field) for row in arcpy.SearchCursor(chop_layer)])
 
-#for code in codes:
-    #value_raw = code
-    value_raw = row[0]
-    #value = value_raw.lstrip("0")
+for pipe in uniquePipes:
+
+    value_raw = pipe
     sql = field + " = " + "'" + value_raw + "'"
-
-    #value_stripped_unicode = value.lstrip("0")
-    #value = value_raw.encode("utf-8")
-    #value_stripped = "'" + value_stripped_string + "'"
 
     arcpy.AddMessage(sql)
 
