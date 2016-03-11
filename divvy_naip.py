@@ -5,10 +5,13 @@
 # Libraries
 import os, glob, shutil, itertools
 
+county = "Tompkins"
+year = "Ortho_2015"
+
 # Directories
-tile_folder = r"\\CCSVR01\Extra_GIS_Data\NY_LeafOff\By_County_and_Year\Broome\Ortho_2015"
+tile_folder = "\\\\CCSVR01\\Extra_GIS_Data\\NY_LeafOff\\By_County_and_Year\\" + county + "\\" + year
 local_folder = r"C:\Users\ChesConserv1\Desktop\Colin_GIS\Broome"
-folder_prefix = "Ortho_2015_"
+folder_prefix = year + "_"
 
 # Get files as list
 os.chdir(tile_folder)
