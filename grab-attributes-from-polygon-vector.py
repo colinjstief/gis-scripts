@@ -4,41 +4,33 @@ import arcpy
 
 arcpy.env.overwriteOutput = True
 
-parcel_file = "\\\\Ccsvr01\\d\\GIS\\PG_County\\Fields.gdb\\Parcels_Gaps"
+parcel_file = "\\\\Ccsvr01\\d\\GIS\\Lower_Susquehanna_Conservation_Toolbox\\Parcels.shp"
 parcel_layer = arcpy.MakeFeatureLayer_management(parcel_file, "parcel_layer")
 
 # EDIT 1
-chop_file = "\\\\Ccsvr01\\d\\GIS\\PG_County\\CleanDatasets\\storm_drain_inventory\\Structures_SD_Type_Dissolve_MP_Remaining.shp"
+chop_file = "\\\\Ccsvr01\\d\\GIS\\Lower_Susquehanna_Conservation_Toolbox\\Soils.shp"
 chop_layer = arcpy.MakeFeatureLayer_management(chop_file, "chop_layer")
 
 # EDIT 2
-field = "StrType"
+field = "hydgrp"
 
 # EDIT 3
-fields = ["StrType"]
+fields = ["hydgrp"]
+classes = ['A','A/D','B','B/D','C','C/D','D']
 
-rows = arcpy.da.SearchCursor(chop_file, fields)
-for row in rows:
-#codes = [1,2,3,4,5,6]
+#rows = arcpy.da.SearchCursor(chop_file, fields)
+#for row in rows:
+for this_class in classes:
 
-#for code in codes:
-    #value_raw = code
-    #value_string = str(code)
-    value_raw = row[0]
-    #value = value_raw.lstrip("0")
+    value_raw = this_class
     sql = field + " = " + "'" + value_raw + "'"
-    #sql = field + " = " + str(value_raw)
-
-    #value_stripped_unicode = value.lstrip("0")
-    #value = value_raw.encode("utf-8")
-    #value_stripped = "'" + value_stripped_string + "'"
 
     arcpy.AddMessage(sql)
 
     arcpy.SelectLayerByAttribute_management(chop_layer,"NEW_SELECTION", sql)
 
     current_chop_layer = arcpy.MakeFeatureLayer_management(chop_layer, "current_chop_layer")
-    arcpy.SelectLayerByLocation_management(parcel_layer, "HAVE_THEIR_CENTER_IN", current_chop_layer, "", "NEW_SELECTION")
+    arcpy.SelectLayerByLocation_management(parcel_layer, "INTERSECT", current_chop_layer, "", "NEW_SELECTION")
 
     codeblock = """def grabValue(existingValue):
         if existingValue != "NA":
@@ -50,7 +42,7 @@ for row in rows:
     """ % (value_raw, value_raw)
 
     # EDIT 4
-    expression = "grabValue(!StrType!)"
+    expression = "grabValue(!SoilGrp!)"
 
     # EDIT 5
-    arcpy.CalculateField_management(parcel_layer, "StrType", expression, "Python", codeblock)
+    arcpy.CalculateField_management(parcel_layer, "SoilGrp", expression, "Python", codeblock)
