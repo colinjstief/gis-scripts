@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="chesapeake-conservancy" />
     <orderEntry type="module" module-name="GIS" />
+    <orderEntry type="module" module-name="_Web_Services" />
   </component>
 </module>
