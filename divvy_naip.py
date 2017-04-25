@@ -5,17 +5,14 @@
 # Libraries
 import os, glob, shutil, itertools
 
-county = "Tompkins"
-year = "Ortho_2015"
-
 # Directories
-tile_folder = "\\\\CCSVR01\\Extra_GIS_Data\\NY_LeafOff\\By_County_and_Year\\" + county + "\\" + year
-local_folder = r"C:\Users\ChesConserv1\Desktop\Colin_GIS\Broome"
-folder_prefix = year + "_"
+tile_folder = r"\\Ccsvr01\d\GIS\Conservation_Innovation\Classification_Resources\StaffFolders\Colin\Randolph"
+local_folder = r"C:\Users\ChesConserv1\Desktop\Colin_GIS\Randolph"
+folder_prefix = "Randolph"
 
 # Get files as list
 os.chdir(tile_folder)
-tiles = glob.glob('*jp2')
+tiles = glob.glob('*.j*')
 
 print "There are " + str(len(tiles)) + " tiles in this folder."
 
@@ -28,7 +25,7 @@ def groupFunction(tiles, magic_number):
             break
         yield items
 
-for group_number, group in enumerate(groupFunction(tiles, 50)):
+for group_number, group in enumerate(groupFunction(tiles, 375)):
     folder_name = folder_prefix + str(group_number)
     folder_path = os.path.join(local_folder, folder_name)
     print "Moving files into: " + folder_path

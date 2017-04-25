@@ -5,7 +5,7 @@
 import arcpy, csv, os, shutil
 
 # Tile directory
-tile_directory = r"\\CCSVR01\Extra_GIS_Data\NY_LeafOff\By_County_and_Year\Tioga\Ortho_2014"
+tile_directory = r"\\Ccsvr01\d\GIS\Conservation_Innovation\Classification_Resources\StaffFolders\Colin\Randolph"
 
 # Destination
 destination_directory = r"\\Ccsvr01\d\GIS\Conservation_Innovation\Classification_Resources\StaffFolders\Kathryn\Outputs"
